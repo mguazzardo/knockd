@@ -1,0 +1,8 @@
+#!/bin/bash
+
+iptables -F
+iptables -P INPUT DROP
+iptables -A INPUT -p icmp -j ACCEPT
+iptables -A INPUT -p tcp -s localhost -j ACCEPT
+iptables -A INPUT -p udp -s localhost -j ACCEPT
+iptables -A INPUT -p tcp --dport 22 -j ACCEPT
